@@ -1,0 +1,24 @@
+//The algorithm checks if any element matches in two sorted arrays
+
+#include <iostream>
+#define n 7
+#define m 7
+using namespace std;
+
+int main() {
+	int a[n] = {13, 27, 35, 40, 49, 55, 59},
+	b[m] = {17, 35, 39, 40, 55, 58, 60};
+	
+	for (int i = 0, j = 0; i < n && j < m;){
+	if (a[i] == b[j]){
+		cout<<"Match"<<a[i]<<endl;
+		i++;
+	}
+	else if (a[i] < b[j])
+		i++;
+	else if (a[i] > b[j])
+		j++;
+	}
+		
+	return 0;
+}
