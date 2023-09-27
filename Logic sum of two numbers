@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+
+int main() {
+
+	int a = 5, b = 3, mask =1, rez=0;
+	
+	if (a == b)
+		cout<<(a<<1)<<endl;
+		else{
+			for(mask = 1; mask <= 128; mask *=2){
+				rez |= (a & mask);
+				if ((b & mask) && (rez & mask) == mask){
+					rez &= ~mask;
+					rez |= (mask<<1);
+					cout<<"inside if"<<endl;
+				}
+				else
+					rez |= (b & mask);
+				
+				cout<<"mask:"<<mask<<"rez:"<<rez<<endl;
+			}
+		}
+	
+	
+	return 0;
+}
