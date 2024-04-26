@@ -1,20 +1,24 @@
 #include <stdio.h>
 #include <string.h>
 int main(void) {
+	// the string where we search
 	char book[100] = "My book is about healty food. It is not a big books.";
+	// the word we search for
 	char word[10] = "is";
-	int counter = 0, i = 0, j = 0;
-	int chr = 0;
 	
-	//check how many characters has the word
+	int counter = 0, i = 0, j = 0;
+	
+	//check how many characters are in word
+	int chr = 0; // here we store the number of characters found in word
 	while (word[i++])
 		chr++;
 	printf("The word \"%s\" has %d characters.\n",word, chr);
+
+
 	i = 0;
 	int c = chr;
 	
 	while (book[j]){
-		
 		if(word[i] == book[j]){
 			printf("found %c at position %d\n", word[i++], j++);
 			--c;
