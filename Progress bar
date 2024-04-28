@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <unistd.h>
+
+void printProgressBar(int progress) {
+    const int barWidth = 70; //bar body width
+    int pos = barWidth * progress / 100; //process progress position in %
+    printf("[");
+    for (int i = 0; i < barWidth; ++i) { //build the bar body
+        if (i < pos) printf("="); //completes the bar body with =
+        else if (i == pos) printf(">"); //refers to first occurrence i=0 and pos=0
+        else printf(" "); //completes to bar body with white spaces
+    }
+    printf("] %3d%%\r", progress);
+    fflush(stdout); //forces the output data to be written to stdout immediately (instead of \n)
+}
+
+int main() {
+    for (int i = 0; i <= 100; ++i) {
+        printProgressBar(i);
+        sleep(1);  // Simulate a delay for demonstration
+    }
+    printf("\n");
+    return 0;
+}
