@@ -1,0 +1,34 @@
+//The program converts a logarithm, for a given number, from base a to base b and calculates its result.
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+// Function to display subscript digits
+void displaySubscript(int digit) {
+    // Unicode values for superscript digits
+    const char* superscripts[] = {"₀", "₁", "₂", "₃", "₄", "₅", "₆", "₇", "₈", "₉"};
+    
+    if (digit >= 0 && digit <= 9)
+        cout << superscripts[digit];
+}
+
+int main() {
+	double number, base;
+	
+	cout<<"Enter the number of your logarithm: ";
+	cin>>number;
+	cout<<number<<endl;
+	
+	cout<<"Enter the new base in wich you want to convert your logarithm: ";
+	cin>>base;
+	cout<<base<<endl;
+	
+	cout<< "log";
+	//Display the base with subscript digits
+	for(char c : to_string((int)base))
+		displaySubscript(c -'0');
+	cout<<"("<<number<<") = "<<log(number)/log(base)<<endl;
+	
+	return 0;
+}
