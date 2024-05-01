@@ -1,4 +1,6 @@
-// the program checks if a given number is primea
+// The program checks if a given number n is prime, by checking for divisibility on numbers x less than it.
+// If n is divisible by a number x greater than its square root (x*x), it means that it is divisible by something smaller than it.
+
 #include <iostream>
 using namespace std;
 
