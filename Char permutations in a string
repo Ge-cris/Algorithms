@@ -24,9 +24,71 @@ void permutation(string str, string prefix) {
 }
 
 int main() {
-    string input = "abcdef";
+    string input = "abc";
     permutation(input);
     cout<<counter<<endl;
     return 0;
 }
 
+/*
+1/ Initial Call:
+    permutation("abc") is called.
+    str = "abc", prefix = "".
+    Enters the else block.
+    Iterates through each character of str:
+    For i = 0:
+        Recursive call: permutation("bc", "a")
+    For i = 1:
+        Recursive call: permutation("ac", "b")
+    For i = 2:
+        Recursive call: permutation("ab", "c")
+2/ Recursive Call 1 (permutation("bc", "a")):
+    str = "bc", prefix = "a".
+    Enters the else block.
+    Iterates through each character of str:
+    For i = 0:
+        Recursive call: permutation("c", "ab")
+    For i = 1:
+        Recursive call: permutation("b", "ac")
+3/ Recursive Call 2 (permutation("c", "ab")):
+    str = "c", prefix = "ab".
+    Enters the if block.
+    Prints: "abc"
+4/ Recursive Call 3 (permutation("b", "ac")):
+    str = "b", prefix = "ac".
+    Enters the if block.
+    Prints: "acb"
+5/ Recursive Call 4 (permutation("ac", "b")):
+    str = "ac", prefix = "b".
+    Enters the else block.
+    Iterates through each character of str:
+    For i = 0:
+        Recursive call: permutation("c", "ba")
+    For i = 1:
+        Recursive call: permutation("a", "bc")
+6/ Recursive Call 5 (permutation("c", "ba")):
+    str = "c", prefix = "ba".
+    Enters the if block.
+    Prints: "bac"
+7/ Recursive Call 6 (permutation("a", "bc")):
+    str = "a", prefix = "bc".
+    Enters the if block.
+    Prints: "bca"
+8/ Recursive Call 7 (permutation("ab", "c")):
+    str = "ab", prefix = "c".
+    Enters the else block.
+    Iterates through each character of str:
+    For i = 0:
+        Recursive call: permutation("b", "ca")
+    For i = 1:
+        Recursive call: permutation("a", "cb")
+9/ Recursive Call 8 (permutation("b", "ca")):
+    str = "b", prefix = "ca".
+    Enters the if block.
+    Prints: "cab"
+10/ Recursive Call 9 (permutation("a", "cb")):
+    str = "a", prefix = "cb".
+    Enters the if block.
+    Prints: "cba"
+End of Execution:
+All possible permutations of the string "abc" have been printed.*/
