@@ -1,0 +1,32 @@
+//The program counts all the character permutations possible in a given string
+#include <iostream>
+#include <string>
+using namespace std;
+
+int counter=0;
+void permutation(string str);
+void permutation(string str, string prefix);
+
+void permutation(string str) {
+    permutation(str, "");
+}
+
+void permutation(string str, string prefix) {
+    if (str.length() == 0) {
+        cout << prefix << endl;
+        counter++;
+    } else {
+        for (size_t i = 0; i < str.length(); i++) {
+            string rem = str.substr(0, i) + str.substr(i + 1);
+            permutation(rem, prefix + str[i]);
+        }
+    }
+}
+
+int main() {
+    string input = "abcdef";
+    permutation(input);
+    cout<<counter<<endl;
+    return 0;
+}
+
