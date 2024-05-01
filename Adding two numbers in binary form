@@ -7,6 +7,8 @@ using namespace std;
 int main() {
 	bool A[] = {1, 0, 1, 0};
 	bool B[] = {1, 1, 1, 0};
+	if (sizeof(A) != sizeof(B))
+		return 1;
 	int n = sizeof(A)/sizeof(A[0]);
 	bool C[n+1];
 	bool aux=0;
