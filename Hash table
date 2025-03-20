@@ -15,7 +15,7 @@ using namespace std;
 		strcpy(hash_table[index], person_name);
 	}
 	
-	void print_table_content (char hash_table[10][10]]){
+	void print_table_content (char hash_table[10][10]){
 		cout<<"Hash table content:"<<endl;
 		for (int c =0; c<10; c++)
 			cout<< hash_table[c]<<" | ";
