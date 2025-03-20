@@ -12,9 +12,30 @@ using namespace std;
 	void add_name (char* person_name, char hash_table[10][10]){
 		cout<<"Adding: " << person_name << endl;
 		int index = hash_function (person_name);
-		strcpy(hash_table[index], person_name);
+		if (strcmp (hash_table[index], "\0") == 0)
+			strcpy(hash_table[index], person_name);
+		else
+			cout<<"hash_table[" << index << "] is already used" << endl;
 	}
 	
+	void remove_name (char * person_name, char hash_table[10][10]){
+		cout<<"Removing: " << person_name << endl;
+		int index = hash_function (person_name);
+		if (strcmp (hash_table[index], person_name) ==0)
+			strcpy(hash_table[index], "\0");
+		else
+			cout<< "The name " << person_name << " is not in the table" <<endl;
+	}
+	
+	void find_name (char * person_name, char hash_table[10][10]){
+		cout<<"Finding: " << person_name << endl;
+		int index = hash_function (person_name);
+		if (strcmp (hash_table[index], person_name) ==0)
+			cout<< "The name " << person_name << " is in the table at index " << index <<endl;
+		else
+			cout<< "The name " << person_name << " is not in the table" <<endl;
+	}
+
 	void print_table_content (char hash_table[10][10]){
 		cout<<"Hash table content:"<<endl;
 		for (int c =0; c<10; c++)
@@ -23,11 +44,17 @@ using namespace std;
 	}
 int main() {
 	char hash_table[10][10] = {}; //initialize with empty strings
-	char person_name[10] = "cristi";
 
-	add_name(person_name, hash_table);
+	add_name("crisit", hash_table);
+	print_table_content(hash_table);
+	
+	add_name("cristi", hash_table);
+	remove_name("crisit", hash_table);
+	
+	add_name("cristi", hash_table);
 	print_table_content(hash_table);
 
+	find_name ("cristi", hash_table);
 	
 	return 0;
 }
