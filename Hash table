@@ -55,6 +55,9 @@ int main() {
 	print_table_content(hash_table);
 
 	find_name ("cristi", hash_table);
-	
+
+	add_name("marina", hash_table);
+	print_table_content(hash_table);
+
 	return 0;
 }
