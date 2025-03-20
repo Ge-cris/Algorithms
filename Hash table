@@ -1,0 +1,33 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+	int hash_function (const char* name){
+		int i=0, sum=0;
+		while (name[i] != '\0')
+			sum += name[i++];
+		return sum%10;
+	}
+	
+	void add_name (char* person_name, char hash_table[10][10]){
+		cout<<"Adding: " << person_name << endl;
+		int index = hash_function (person_name);
+		strcpy(hash_table[index], person_name);
+	}
+	
+	void print_table_content (char hash_table[10[10]]){
+		cout<<"Hash table content:"<<endl;
+		for (int c =0; c<10; c++)
+			cout<< hash_table[c]<<" | ";
+		cout<<endl;
+	}
+int main() {
+	char hash_table[10][10] = {}; //initialize with empty strings
+	char person_name[10] = "cristi";
+
+	add_name(person_name, hash_table);
+	print_table_content(hash_table);
+
+	
+	return 0;
+}
